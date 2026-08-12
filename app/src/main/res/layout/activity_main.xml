@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<!-- Main layout for the MainActivity, containing a RecyclerView to display movies -->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main"
@@ -7,11 +7,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
+    <!-- RecyclerView for listing movies -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/movieRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-
 
 </LinearLayout>

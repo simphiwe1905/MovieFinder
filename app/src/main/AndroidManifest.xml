@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Requesting Internet permission for network requests -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -13,6 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieFinder">
+
+        <!-- Main Activity of the application -->
         <activity
             android:name=".MainActivity"
             android:exported="true">

@@ -1,3 +1,4 @@
 <resources>
+    <!-- The name of the application -->
     <string name="app_name">MovieFinder</string>
 </resources>

@@ -11,8 +11,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.moviefinder.adapter.MovieAdapter
 import com.example.moviefinder.viewmodel.MovieViewModel
 
+/**
+ * The main activity that displays a list of popular movies.
+ */
 class MainActivity : AppCompatActivity() {
 
+    // ViewModel to manage movie data
     private val movieViewModel: MovieViewModel by viewModels()
 
     private lateinit var movieRecyclerView: RecyclerView
@@ -22,11 +26,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // Enable edge-to-edge display for a modern UI
         enableEdgeToEdge()
 
         setContentView(R.layout.activity_main)
 
-
+        // Handle window insets to adjust padding for system bars (status bar, navigation bar)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
 
             val systemBars =
@@ -43,24 +48,23 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        // RecyclerView setup
+        // Initialize RecyclerView to display the list of movies
         movieRecyclerView = findViewById(R.id.movieRecyclerView)
 
+        // Set the layout manager for the RecyclerView
         movieRecyclerView.layoutManager =
             LinearLayoutManager(this)
 
-
+        // Initialize the adapter with an empty list
         movieAdapter = MovieAdapter(emptyList())
 
+        // Attach the adapter to the RecyclerView
         movieRecyclerView.adapter = movieAdapter
 
-
-
-        // Observe movies from TMDB
+        // Observe the movies LiveData from the ViewModel
         movieViewModel.movies.observe(this) { movies ->
-
+            // Update the adapter when new movie data is available
             movieAdapter.updateMovies(movies)
-
         }
 
     }
