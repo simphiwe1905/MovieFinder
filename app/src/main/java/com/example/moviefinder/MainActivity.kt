@@ -95,6 +95,20 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val favouritesButton = findViewById<Button>(
+            R.id.btnFavourites
+        )
+
+        favouritesButton.setOnClickListener {
+
+            val intent = Intent(
+                this,
+                activity_favourites::class.java
+            )
+
+            startActivity(intent)
+        }
+
         // -----------------------------
         // SEARCH
         // -----------------------------

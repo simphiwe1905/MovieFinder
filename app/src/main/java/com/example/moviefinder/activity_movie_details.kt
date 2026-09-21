@@ -6,6 +6,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.example.moviefinder.model.Movie
 
 class activity_movie_details : AppCompatActivity() {
 
@@ -44,19 +45,35 @@ class activity_movie_details : AppCompatActivity() {
         )
 
         // Get movie information sent from MovieAdapter
-        val movieTitle = intent.getStringExtra("movie_title")
-        val movieOverview = intent.getStringExtra("movie_overview")
-        val moviePoster = intent.getStringExtra("movie_poster")
+        val movieId = intent.getIntExtra(
+            "movie_id",
+            0
+        )
+
+        val movieTitle = intent.getStringExtra(
+            "movie_title"
+        )
+
+        val movieOverview = intent.getStringExtra(
+            "movie_overview"
+        )
+
+        val moviePoster = intent.getStringExtra(
+            "movie_poster"
+        )
+
         val movieRating = intent.getDoubleExtra(
             "movie_rating",
             0.0
         )
+
         val movieReleaseDate = intent.getStringExtra(
             "movie_release_date"
         )
 
         // Display movie information
-        title.text = movieTitle ?: "Unknown Movie"
+        title.text =
+            movieTitle ?: "Unknown Movie"
 
         rating.text =
             "⭐ ${String.format("%.1f", movieRating)}"
@@ -67,7 +84,7 @@ class activity_movie_details : AppCompatActivity() {
         overview.text =
             movieOverview ?: "No overview available."
 
-        // Load the movie poster
+        // Load movie poster
         if (!moviePoster.isNullOrEmpty()) {
 
             val posterUrl =
@@ -79,16 +96,56 @@ class activity_movie_details : AppCompatActivity() {
                 .into(poster)
         }
 
+        // Create the Movie object
+        val movie = Movie(
+            id = movieId,
+            title = movieTitle ?: "Unknown Movie",
+            overview = movieOverview ?: "No overview available.",
+            poster_path = moviePoster,
+            vote_average = movieRating,
+            release_date = movieReleaseDate
+        )
+
+        // Create FavouriteManager
+        val favouriteManager =
+            FavouriteManager(this)
+
+        // Check if movie is already a favourite
+        if (favouriteManager.isFavourite(movieId)) {
+
+            favouriteButton.text =
+                "❤️ REMOVE FROM FAVOURITES"
+
+        } else {
+
+            favouriteButton.text =
+                "❤️ ADD TO FAVOURITES"
+        }
+
         // Favourite button
         favouriteButton.setOnClickListener {
 
-            favouriteButton.text = "❤️ ADDED TO FAVOURITES"
+            if (favouriteManager.isFavourite(movieId)) {
+
+                favouriteManager.removeFavourite(movieId)
+
+                favouriteButton.text =
+                    "❤️ ADD TO FAVOURITES"
+
+            } else {
+
+                favouriteManager.addFavourite(movie)
+
+                favouriteButton.text =
+                    "❤️ REMOVE FROM FAVOURITES"
+            }
         }
 
         // Watchlist button
         watchlistButton.setOnClickListener {
 
-            watchlistButton.text = "🔖 ADDED TO WATCHLIST"
+            watchlistButton.text =
+                "🔖 ADDED TO WATCHLIST"
         }
     }
 }
