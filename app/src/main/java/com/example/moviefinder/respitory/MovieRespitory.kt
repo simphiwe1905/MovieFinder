@@ -5,15 +5,24 @@ import com.example.moviefinder.network.RetrofitInstance
 
 /**
  * Repository class that handles data operations for Movies.
- * It acts as a mediator between different data sources (in this case, only TMDB API).
+ * It acts as a mediator between the UI and TMDB API.
  */
 class MovieRepository {
 
     /**
-     * Fetches a list of popular movies from the TMDB API.
-     * @return The response from the API containing a list of movies.
+     * Fetches a list of popular movies from TMDB.
      */
     suspend fun getPopularMovies() =
-        RetrofitInstance.api.getPopularMovies(Constants.API_KEY)
+        RetrofitInstance.api.getPopularMovies(
+            Constants.API_KEY
+        )
 
+    /**
+     * Searches TMDB for movies using a search query.
+     */
+    suspend fun searchMovies(query: String) =
+        RetrofitInstance.api.searchMovies(
+            Constants.API_KEY,
+            query
+        )
 }

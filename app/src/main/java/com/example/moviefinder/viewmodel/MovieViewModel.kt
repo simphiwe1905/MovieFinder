@@ -19,27 +19,60 @@ class MovieViewModel : ViewModel() {
     // Internal MutableLiveData to hold the list of movies
     private val _movies = MutableLiveData<List<Movie>>()
 
-    // Public LiveData to expose the list of movies to observers (e.g., Activity)
+    // Public LiveData to expose the list of movies
     val movies: LiveData<List<Movie>>
         get() = _movies
 
     init {
-        // Fetch movies when the ViewModel is initialized
+        // Fetch popular movies when the ViewModel starts
         fetchMovies()
     }
 
     /**
-     * Launches a coroutine to fetch popular movies from the repository.
+     * Fetches popular movies from TMDB.
      */
     private fun fetchMovies() {
+
         viewModelScope.launch {
+
             try {
-                // Fetch the response from the repository
-                val response = repository.getPopularMovies()
-                // Update the LiveData with the list of movie results
-                _movies.value = response.results
+
+                val response =
+                    repository.getPopularMovies()
+
+                _movies.value =
+                    response.results
+
             } catch (e: Exception) {
-                // Handle potential errors (e.g., network issues)
+
+                e.printStackTrace()
+            }
+        }
+    }
+
+    /**
+     * Searches TMDB for movies matching the user's search query.
+     */
+    fun searchMovies(query: String) {
+
+        // Don't search if the search box is empty
+        if (query.isBlank()) {
+            fetchMovies()
+            return
+        }
+
+        viewModelScope.launch {
+
+            try {
+
+                val response =
+                    repository.searchMovies(query)
+
+                _movies.value =
+                    response.results
+
+            } catch (e: Exception) {
+
                 e.printStackTrace()
             }
         }

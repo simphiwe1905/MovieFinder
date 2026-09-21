@@ -11,12 +11,20 @@ interface MovieApi {
 
     /**
      * Fetches the list of popular movies from TMDB.
-     * @param apiKey The API key for authentication.
-     * @return A MovieResponse object containing the list of popular movies.
      */
     @GET("movie/popular")
     suspend fun getPopularMovies(
         @Query("api_key") apiKey: String
+    ): MovieResponse
+
+
+    /**
+     * Searches for movies using a movie title.
+     */
+    @GET("search/movie")
+    suspend fun searchMovies(
+        @Query("api_key") apiKey: String,
+        @Query("query") query: String
     ): MovieResponse
 
 }

@@ -63,6 +63,11 @@ class activity_login : AppCompatActivity() {
             // Check login details
             if (enteredEmail == savedEmail && enteredPassword == savedPassword) {
 
+                // Save login session
+                sharedPreferences.edit()
+                    .putBoolean("isLoggedIn", true)
+                    .apply()
+
                 // Login successful
                 Toast.makeText(
                     this,
@@ -79,25 +84,23 @@ class activity_login : AppCompatActivity() {
 
             } else {
 
-                // Login failed
                 Toast.makeText(
                     this,
                     "Incorrect email or password",
                     Toast.LENGTH_SHORT
                 ).show()
             }
-        }
 
-        // CREATE ACCOUNT button
-        registerButton.setOnClickListener {
+            // CREATE ACCOUNT button
+            registerButton.setOnClickListener {
 
-            val intent = Intent(
-                this,
-                activity_register::class.java
-            )
+                val intent = Intent(
+                    this,
+                    activity_register::class.java
+                )
 
-            startActivity(intent)
+                startActivity(intent)
+            }
         }
     }
 }
-

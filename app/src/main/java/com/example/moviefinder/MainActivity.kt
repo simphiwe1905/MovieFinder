@@ -1,6 +1,9 @@
 package com.example.moviefinder
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -12,30 +15,57 @@ import com.example.moviefinder.adapter.MovieAdapter
 import com.example.moviefinder.viewmodel.MovieViewModel
 
 /**
- * The main activity that displays a list of popular movies.
+ * The main activity that displays movies and allows users to search.
  */
 class MainActivity : AppCompatActivity() {
 
-    // ViewModel to manage movie data
     private val movieViewModel: MovieViewModel by viewModels()
 
     private lateinit var movieRecyclerView: RecyclerView
     private lateinit var movieAdapter: MovieAdapter
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Enable edge-to-edge display for a modern UI
+        // Check if the user is logged in
+        val sharedPreferences = getSharedPreferences(
+            "MovieFinderUsers",
+            MODE_PRIVATE
+        )
+
+        val isLoggedIn = sharedPreferences.getBoolean(
+            "isLoggedIn",
+            false
+        )
+
+        // If the user is not logged in,
+        // send them back to the Login screen
+        if (!isLoggedIn) {
+
+            val intent = Intent(
+                this,
+                activity_login::class.java
+            )
+
+            startActivity(intent)
+            finish()
+            return
+        }
+
         enableEdgeToEdge()
 
+        // Connect MainActivity to activity_main.xml
         setContentView(R.layout.activity_main)
 
-        // Handle window insets to adjust padding for system bars (status bar, navigation bar)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        // Handle screen insets
+        ViewCompat.setOnApplyWindowInsetsListener(
+            findViewById(R.id.main)
+        ) { v, insets ->
 
             val systemBars =
-                insets.getInsets(WindowInsetsCompat.Type.systemBars())
+                insets.getInsets(
+                    WindowInsetsCompat.Type.systemBars()
+                )
 
             v.setPadding(
                 systemBars.left,
@@ -47,25 +77,70 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        // -----------------------------
+        // SETTINGS
+        // -----------------------------
 
-        // Initialize RecyclerView to display the list of movies
-        movieRecyclerView = findViewById(R.id.movieRecyclerView)
+        val settingsButton = findViewById<Button>(
+            R.id.btnSettings
+        )
 
-        // Set the layout manager for the RecyclerView
+        settingsButton.setOnClickListener {
+
+            val intent = Intent(
+                this,
+                activity_settings::class.java
+            )
+
+            startActivity(intent)
+        }
+
+        // -----------------------------
+        // SEARCH
+        // -----------------------------
+
+        val searchInput = findViewById<EditText>(
+            R.id.edtSearchMovie
+        )
+
+        val searchButton = findViewById<Button>(
+            R.id.btnSearchMovie
+        )
+
+        searchButton.setOnClickListener {
+
+            val searchQuery =
+                searchInput.text.toString().trim()
+
+            if (searchQuery.isNotEmpty()) {
+
+                movieViewModel.searchMovies(
+                    searchQuery
+                )
+
+            } else {
+
+                // If the search box is empty,
+                // show the popular movies again
+                movieViewModel.searchMovies("")
+            }
+        }
+
+        movieRecyclerView =
+            findViewById(R.id.movieRecyclerView)
+
         movieRecyclerView.layoutManager =
             LinearLayoutManager(this)
 
-        // Initialize the adapter with an empty list
+        // Create movie adapter
         movieAdapter = MovieAdapter(emptyList())
 
-        // Attach the adapter to the RecyclerView
         movieRecyclerView.adapter = movieAdapter
 
-        // Observe the movies LiveData from the ViewModel
         movieViewModel.movies.observe(this) { movies ->
-            // Update the adapter when new movie data is available
-            movieAdapter.updateMovies(movies)
-        }
 
+            movieAdapter.updateMovies(movies)
+
+        }
     }
 }

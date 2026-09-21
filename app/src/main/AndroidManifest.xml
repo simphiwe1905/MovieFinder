@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
     <!-- Requesting Internet permission for network requests -->
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -14,29 +13,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieFinder">
-
-        <!-- LOGIN SCREEN - THIS IS NOW THE STARTING SCREEN -->
+        <activity
+            android:name=".activity_movie_details"
+            android:exported="false" />
+        <activity
+            android:name=".activity_settings"
+            android:exported="false" /> <!-- LOGIN SCREEN -->
         <activity
             android:name=".activity_login"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-        </activity>
-
-        <!-- REGISTER SCREEN -->
+        </activity> <!-- REGISTER SCREEN -->
         <activity
             android:name=".activity_register"
-            android:exported="false" />
-
-        <!-- MOVIE LIST SCREEN -->
+            android:exported="false" /> <!-- MOVIE LIST SCREEN -->
         <activity
             android:name=".MainActivity"
             android:exported="false" />
-
     </application>
 
 </manifest>
