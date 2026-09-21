@@ -15,16 +15,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieFinder">
 
-        <!-- Main Activity of the application -->
+        <!-- LOGIN SCREEN - THIS IS NOW THE STARTING SCREEN -->
         <activity
-            android:name=".MainActivity"
+            android:name=".activity_login"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
+        <!-- REGISTER SCREEN -->
+        <activity
+            android:name=".activity_register"
+            android:exported="false" />
+
+        <!-- MOVIE LIST SCREEN -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>
