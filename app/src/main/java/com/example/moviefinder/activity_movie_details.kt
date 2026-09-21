@@ -141,11 +141,39 @@ class activity_movie_details : AppCompatActivity() {
             }
         }
 
-        // Watchlist button
-        watchlistButton.setOnClickListener {
+        // Create WatchlistManager
+        val watchlistManager =
+            WatchlistManager(this)
+
+// Check if movie is already in the watchlist
+        if (watchlistManager.isInWatchlist(movieId)) {
 
             watchlistButton.text =
-                "🔖 ADDED TO WATCHLIST"
+                "🔖 REMOVE FROM WATCHLIST"
+
+        } else {
+
+            watchlistButton.text =
+                "🔖 ADD TO WATCHLIST"
+        }
+
+// Watchlist button
+        watchlistButton.setOnClickListener {
+
+            if (watchlistManager.isInWatchlist(movieId)) {
+
+                watchlistManager.removeWatchlist(movieId)
+
+                watchlistButton.text =
+                    "🔖 ADD TO WATCHLIST"
+
+            } else {
+
+                watchlistManager.addWatchlist(movie)
+
+                watchlistButton.text =
+                    "🔖 REMOVE FROM WATCHLIST"
+            }
         }
     }
 }

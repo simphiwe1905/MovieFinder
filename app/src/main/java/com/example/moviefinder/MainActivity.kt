@@ -109,6 +109,36 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        // Watchlist
+        val watchlistButton = findViewById<Button>(
+            R.id.btnWatchlist
+        )
+
+        watchlistButton.setOnClickListener {
+
+            val intent = Intent(
+                this,
+                activity_watchlist::class.java
+            )
+
+            startActivity(intent)
+        }
+
+        // Genres
+        val genresButton = findViewById<Button>(
+            R.id.btnGenres
+        )
+
+        genresButton.setOnClickListener {
+
+            val intent = Intent(
+                this,
+                activity_genres::class.java
+            )
+
+            startActivity(intent)
+        }
+
         // -----------------------------
         // SEARCH
         // -----------------------------

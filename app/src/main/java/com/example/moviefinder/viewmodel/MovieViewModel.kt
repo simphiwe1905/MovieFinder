@@ -7,6 +7,8 @@ import androidx.lifecycle.viewModelScope
 import com.example.moviefinder.model.Movie
 import com.example.moviefinder.repository.MovieRepository
 import kotlinx.coroutines.launch
+import com.example.moviefinder.model.Genre
+
 
 /**
  * ViewModel for managing movie data and exposing it to the UI.
@@ -22,6 +24,14 @@ class MovieViewModel : ViewModel() {
     // Public LiveData to expose the list of movies
     val movies: LiveData<List<Movie>>
         get() = _movies
+
+    // Internal MutableLiveData to hold the list of genres
+    private val _genres =
+        MutableLiveData<List<Genre>>()
+
+    // Public LiveData to expose the list of genres
+    val genres: LiveData<List<Genre>>
+        get() = _genres
 
     init {
         // Fetch popular movies when the ViewModel starts
@@ -67,6 +77,48 @@ class MovieViewModel : ViewModel() {
 
                 val response =
                     repository.searchMovies(query)
+
+                _movies.value =
+                    response.results
+
+            } catch (e: Exception) {
+
+                e.printStackTrace()
+            }
+        }
+    }
+    /**
+     * Fetches movie genres from TMDB.
+     */
+    fun fetchGenres() {
+
+        viewModelScope.launch {
+
+            try {
+
+                val response =
+                    repository.getMovieGenres()
+
+                _genres.value =
+                    response.genres
+
+            } catch (e: Exception) {
+
+                e.printStackTrace()
+            }
+        }
+    }
+    /**
+     * Fetches movies belonging to a selected genre.
+     */
+    fun getMoviesByGenre(genreId: Int) {
+
+        viewModelScope.launch {
+
+            try {
+
+                val response =
+                    repository.getMoviesByGenre(genreId)
 
                 _movies.value =
                     response.results

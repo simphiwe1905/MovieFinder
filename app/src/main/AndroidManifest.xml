@@ -14,6 +14,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieFinder">
         <activity
+            android:name=".activity_genre_movies"
+            android:exported="false" />
+        <activity
+            android:name=".activity_genres"
+            android:exported="false" />
+        <activity
+            android:name=".activity_watchlist"
+            android:exported="false" />
+        <activity
             android:name=".activity_favourites"
             android:exported="false" />
         <activity

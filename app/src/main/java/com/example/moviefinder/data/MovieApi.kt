@@ -3,6 +3,7 @@ package com.example.moviefinder.data
 import com.example.moviefinder.model.MovieResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
+import com.example.moviefinder.model.GenreResponse
 
 /**
  * Interface defining the API endpoints for fetching movie data.
@@ -25,6 +26,17 @@ interface MovieApi {
     suspend fun searchMovies(
         @Query("api_key") apiKey: String,
         @Query("query") query: String
+    ): MovieResponse
+
+    @GET("genre/movie/list")
+    suspend fun getMovieGenres(
+        @Query("api_key") apiKey: String
+    ): GenreResponse
+
+    @GET("discover/movie")
+    suspend fun getMoviesByGenre(
+        @Query("api_key") apiKey: String,
+        @Query("with_genres") genreId: Int
     ): MovieResponse
 
 }
