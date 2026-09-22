@@ -1,4 +1,3 @@
-
 package com.example.moviefinder
 
 import android.content.Intent
@@ -21,7 +20,6 @@ class activity_login : AppCompatActivity() {
         val loginButton = findViewById<Button>(R.id.btnLogin)
         val registerButton = findViewById<Button>(R.id.btnGoToRegister)
 
-        // LOGIN button
         loginButton.setOnClickListener {
 
             val enteredEmail = email.text.toString().trim()
@@ -39,6 +37,7 @@ class activity_login : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+
             // Get the saved registration information
             val sharedPreferences = getSharedPreferences(
                 "MovieFinderUsers",
@@ -47,6 +46,7 @@ class activity_login : AppCompatActivity() {
 
             val savedEmail = sharedPreferences.getString("email", null)
             val savedPassword = sharedPreferences.getString("password", null)
+
 
             // Check if an account exists
             if (savedEmail == null || savedPassword == null) {
@@ -60,13 +60,17 @@ class activity_login : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+
             // Check login details
-            if (enteredEmail == savedEmail && enteredPassword == savedPassword) {
+            if (enteredEmail == savedEmail &&
+                enteredPassword == savedPassword
+            ) {
 
                 // Save login session
                 sharedPreferences.edit()
                     .putBoolean("isLoggedIn", true)
                     .apply()
+
 
                 // Login successful
                 Toast.makeText(
@@ -75,8 +79,13 @@ class activity_login : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
 
+
                 // Open the movie screen
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(
+                    this,
+                    MainActivity::class.java
+                )
+
                 startActivity(intent)
 
                 // Prevent going back to login
@@ -90,17 +99,17 @@ class activity_login : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
             }
+        }
 
-            // CREATE ACCOUNT button
-            registerButton.setOnClickListener {
+        registerButton.setOnClickListener {
 
-                val intent = Intent(
-                    this,
-                    activity_register::class.java
-                )
+            // Open registration screen
+            val intent = Intent(
+                this,
+                activity_register::class.java
+            )
 
-                startActivity(intent)
-            }
+            startActivity(intent)
         }
     }
 }

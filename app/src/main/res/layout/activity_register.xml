@@ -3,80 +3,157 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/cinewatcher_backround2"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="32dp"
-        android:gravity="center_horizontal">
+        android:padding="28dp">
 
-        <!-- App name -->
+        <!-- Header -->
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="MovieFinder"
-            android:textSize="32sp"
+            android:text="CINEWATCHER🍿"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
             android:textStyle="bold"
-            android:layout_marginTop="40dp"
-            android:layout_marginBottom="10dp"/>
+            android:letterSpacing="0.08"
+            android:layout_marginTop="35dp" />
 
-        <!-- Page title -->
         <TextView
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create your movie account"
+            android:textColor="#8FA8C4"
+            android:textSize="14sp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="35dp" />
+
+
+        <!-- Heading -->
+
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Create Account"
-            android:textSize="24sp"
+            android:textColor="#FFFFFF"
+            android:textSize="26sp"
             android:textStyle="bold"
-            android:layout_marginBottom="40dp"/>
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Join MovieFinder and start discovering."
+            android:textColor="#8FA8C4"
+            android:textSize="14sp"
+            android:layout_marginBottom="25dp" />
+
+
+        <!-- Username -->
 
         <EditText
             android:id="@+id/edtRegisterUsername"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             android:hint="Username"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#7890A8"
+            android:textSize="15sp"
             android:inputType="text"
+            android:singleLine="true"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:backgroundTint="#1B4F80"
             android:layout_marginBottom="15dp" />
+
+
+        <!-- Email -->
 
         <EditText
             android:id="@+id/edtRegisterEmail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email"
+            android:layout_height="55dp"
+            android:hint="Email address"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#7890A8"
+            android:textSize="15sp"
             android:inputType="textEmailAddress"
+            android:singleLine="true"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:backgroundTint="#1B4F80"
             android:layout_marginBottom="15dp" />
+
+
+        <!-- Password -->
 
         <EditText
             android:id="@+id/edtRegisterPassword"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             android:hint="Password"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#7890A8"
+            android:textSize="15sp"
             android:inputType="textPassword"
+            android:singleLine="true"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:backgroundTint="#1B4F80"
             android:layout_marginBottom="15dp" />
+
+
+        <!-- Confirm Password -->
 
         <EditText
             android:id="@+id/edtRegisterConfirmPassword"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Confirm Password"
+            android:layout_height="55dp"
+            android:hint="Confirm password"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#7890A8"
+            android:textSize="15sp"
             android:inputType="textPassword"
-            android:layout_marginBottom="20dp" />
+            android:singleLine="true"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:backgroundTint="#1B4F80"
+            android:layout_marginBottom="25dp" />
+
+
+        <!-- Register -->
 
         <Button
             android:id="@+id/btnRegister"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="CREATE ACCOUNT" />
+            android:layout_height="55dp"
+            android:text="CREATE ACCOUNT"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:backgroundTint="#1976D2"
+            android:layout_marginBottom="15dp" />
+
+
         <!-- Login link -->
+
         <TextView
             android:id="@+id/goToLogin"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Already have an account? Login"
-            android:textSize="16sp"
+            android:text="Already have an account? Sign in"
+            android:textColor="#42A5F5"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:padding="15dp"
             android:clickable="true"
-            android:focusable="true"/>
+            android:focusable="true" />
 
     </LinearLayout>
 
