@@ -60,6 +60,11 @@ dependencies {
 
     // Testing Libraries
     testImplementation(libs.junit)
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("org.mockito:mockito-core:5.7.0")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:5.1.0")
+    testImplementation("org.json:json:20231013")
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
 }
