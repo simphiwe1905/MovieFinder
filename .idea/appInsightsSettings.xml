@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.example.moviefinder" />
+                  <option name="mobileSdkAppId" value="1:216606155335:android:67ca059bbd6fdec84dc762" />
+                  <option name="projectId" value="cinewatcher-4944e" />
+                  <option name="projectNumber" value="216606155335" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

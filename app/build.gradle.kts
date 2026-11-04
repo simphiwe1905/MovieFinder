@@ -1,6 +1,7 @@
 plugins {
     // Android Application Plugin
     alias(libs.plugins.android.application)
+    alias(libs.plugins.google.gms.google.services)
 }
 
 android {
@@ -37,6 +38,7 @@ dependencies {
     // Android Support Libraries
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
+    implementation(libs.firebase.messaging)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)

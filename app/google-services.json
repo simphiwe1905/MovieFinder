@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "216606155335",
+    "project_id": "cinewatcher-4944e",
+    "storage_bucket": "cinewatcher-4944e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:216606155335:android:025adb3dd66f61694dc762",
+        "android_client_info": {
+          "package_name": "com.example.cinewatcher"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_QQxJyaOlaW5ZbLOw9DSiMNFldVzXc54"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:216606155335:android:67ca059bbd6fdec84dc762",
+        "android_client_info": {
+          "package_name": "com.example.moviefinder"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_QQxJyaOlaW5ZbLOw9DSiMNFldVzXc54"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
