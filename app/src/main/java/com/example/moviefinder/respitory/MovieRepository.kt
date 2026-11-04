@@ -2,6 +2,7 @@ package com.example.moviefinder.repository
 
 import com.example.moviefinder.Constants
 import com.example.moviefinder.network.RetrofitInstance
+import com.example.moviefinder.data.MovieApi
 
 
 /**
@@ -9,7 +10,6 @@ import com.example.moviefinder.network.RetrofitInstance
  * It acts as a mediator between the UI and TMDB API.
  */
 class MovieRepository {
-
     /**
      * Fetches a list of popular movies from TMDB.
      */

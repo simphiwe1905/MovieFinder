@@ -60,10 +60,15 @@ dependencies {
 
     // Testing Libraries
     testImplementation(libs.junit)
+    // For running tests locally
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.mockito:mockito-core:5.7.0")
     testImplementation("org.mockito.kotlin:mockito-kotlin:5.1.0")
     testImplementation("org.json:json:20231013")
+    // For mocking objects
+    testImplementation("io.mockk:mockk:1.13.8")
+    // For testing coroutines (since your API likely uses them)
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
