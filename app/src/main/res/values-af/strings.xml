@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Application -->
+    <string name="app_name">MovieFinder</string>
+
+    <!-- Navigation -->
+    <string name="home">Tuis</string>
+    <string name="search">Soek</string>
+    <string name="favourites">Gunstelinge</string>
+    <string name="watchlist">Kyklys</string>
+    <string name="settings">Instellings</string>
+
+    <!-- Authentication -->
+    <string name="login">Meld aan</string>
+    <string name="signup">Skep rekening</string>
+    <string name="username">Gebruikersnaam</string>
+    <string name="email">E-pos</string>
+    <string name="password">Wagwoord</string>
+    <string name="confirm_password">Bevestig wagwoord</string>
+    <string name="logout">Meld af</string>
+
+    <!-- Movies -->
+    <string name="popular_movies">Gewilde flieks</string>
+    <string name="search_movies">Soek flieks</string>
+    <string name="movie_details">Fliekbesonderhede</string>
+    <string name="add_to_favourites">Voeg by gunstelinge</string>
+    <string name="remove_from_favourites">Verwyder uit gunstelinge</string>
+    <string name="add_to_watchlist">Voeg by kyklys</string>
+    <string name="remove_from_watchlist">Verwyder uit kyklys</string>
+
+    <!-- Settings -->
+    <string name="language">Taal</string>
+    <string name="select_language">Kies taal</string>
+    <string name="english">Engels</string>
+    <string name="afrikaans">Afrikaans</string>
+    <string name="isiZulu">isiZulu</string>
+    <string name="isiXhosa">isiXhosa</string>
+    <string name="sesotho">Sesotho</string>
+
+    <!-- General -->
+    <string name="save">Stoor</string>
+    <string name="cancel">Kanselleer</string>
+    <string name="welcome">Welkom</string>
+    <string name="no_movies_found">Geen flieks gevind nie</string>
+
+
+    <string name="settings_title">INSTELLINGS</string>
+    <string name="manage_account">Bestuur jou Cinewatcher-rekening</string>
+    <string name="account_section">REKENING</string>
+    <string name="username_label">GEBRUIKERSNAAM</string>
+    <string name="email_address">E-POSADRES</string>
+    <string name="application_section">TOEPASSING</string>
+    <string name="language_section">TAAL</string>
+    <string name="language_description">Kies jou voorkeurtaal</string>
+    <string name="cinewatcher_brand">CINEWATCHER.</string>
+    <string name="discover_save_watch">Ontdek. Stoor. Kyk.</string>
+    <string name="powered_by_tmdb">Aangedryf deur TMDB</string>
+
+
+</resources>

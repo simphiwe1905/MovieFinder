@@ -8,14 +8,14 @@
     android:orientation="vertical"
     android:background="@drawable/cinewatcher_backround2">
 
-    <!-- Header -->
+    <!-- CINEWATCH HEADER -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:paddingStart="20dp"
-        android:paddingTop="18dp"
+        android:paddingStart="16dp"
+        android:paddingTop="8dp"
         android:paddingEnd="16dp"
         android:paddingBottom="12dp">
 
@@ -23,16 +23,18 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:gravity="center">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="CINEWATCHER🍿"
-                android:textColor="#FFFFFF"
-                android:textSize="25sp"
-                android:textStyle="bold"
-                android:letterSpacing="0.08" />
+            <!--Logo-->
+
+            <ImageView
+                android:id="@+id/cinewatchLogo"
+                android:layout_width="150dp"
+                android:layout_height="112dp"
+                android:src="@drawable/cinewatch_logo"
+                android:scaleType="fitCenter"
+                android:contentDescription="CINEWATCH Logo" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -54,8 +56,7 @@
             android:textColor="#FFFFFF"
             android:backgroundTint="#12365B"
             android:minWidth="0dp"
-            android:padding="0dp"
-           />
+            android:padding="0dp" />
 
     </LinearLayout>
 

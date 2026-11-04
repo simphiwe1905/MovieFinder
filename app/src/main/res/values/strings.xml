@@ -1,4 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- The name of the application -->
+
+    <!-- Application -->
     <string name="app_name">MovieFinder</string>
+
+    <!-- Navigation -->
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="favourites">Favourites</string>
+    <string name="watchlist">Watchlist</string>
+    <string name="settings">Settings</string>
+
+    <!-- Authentication -->
+    <string name="login">Login</string>
+    <string name="signup">Create Account</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="logout">Logout</string>
+
+    <!-- Movies -->
+    <string name="popular_movies">Popular Movies</string>
+    <string name="search_movies">Search Movies</string>
+    <string name="movie_details">Movie Details</string>
+    <string name="add_to_favourites">Add to Favourites</string>
+    <string name="remove_from_favourites">Remove from Favourites</string>
+    <string name="add_to_watchlist">Add to Watchlist</string>
+    <string name="remove_from_watchlist">Remove from Watchlist</string>
+
+    <!-- Settings -->
+    <string name="language">Language</string>
+    <string name="select_language">Select Language</string>
+    <string name="english">English</string>
+    <string name="afrikaans">Afrikaans</string>
+    <string name="isiZulu">isiZulu</string>
+    <string name="isiXhosa">isiXhosa</string>
+    <string name="sesotho">Sesotho</string>
+
+    <!-- General -->
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="welcome">Welcome</string>
+    <string name="no_movies_found">No movies found</string>
+
+
+    <string name="settings_title">SETTINGS</string>
+    <string name="manage_account">Manage your Cinewatcher account</string>
+    <string name="account_section">ACCOUNT</string>
+    <string name="username_label">USERNAME</string>
+    <string name="email_address">EMAIL ADDRESS</string>
+    <string name="application_section">APPLICATION</string>
+    <string name="language_section">LANGUAGE</string>
+    <string name="language_description">Choose your preferred language</string>
+    <string name="cinewatcher_brand">CINEWATCHER.</string>
+    <string name="discover_save_watch">Discover. Save. Watch.</string>
+    <string name="powered_by_tmdb">Powered by TMDB</string>
+
+
 </resources>

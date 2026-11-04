@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -14,11 +13,23 @@
         android:orientation="vertical"
         android:padding="22dp">
 
+        <!--Logo-->
+
+        <ImageView
+            android:id="@+id/cinewatchLogo"
+            android:layout_width="150dp"
+            android:layout_height="112dp"
+            android:src="@drawable/cinewatch_logo"
+            android:layout_marginHorizontal="100dp"
+            android:scaleType="fitCenter"
+            android:contentDescription="CINEWATCH Logo" />
+
+        <!-- Settings heading -->
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SETTINGS"
+            android:text="@string/settings_title"
             android:textColor="#FFFFFF"
             android:textSize="28sp"
             android:textStyle="bold"
@@ -28,16 +39,18 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Manage your Cinewatcher account"
+            android:text="@string/manage_account"
             android:textColor="#8FA8C4"
             android:textSize="14sp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="30dp" />
 
+        <!-- Account section -->
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ACCOUNT"
+            android:text="@string/account_section"
             android:textColor="#42A5F5"
             android:textSize="13sp"
             android:textStyle="bold"
@@ -51,12 +64,10 @@
             android:padding="20dp"
             android:background="#102B4A">
 
-            <!-- Username -->
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="USERNAME"
+                android:text="@string/username_label"
                 android:textColor="#7890A8"
                 android:textSize="11sp"
                 android:textStyle="bold" />
@@ -65,20 +76,17 @@
                 android:id="@+id/txtSettingsUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Username"
+                android:text="@string/username"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="20dp" />
 
-
-            <!-- Email -->
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="EMAIL ADDRESS"
+                android:text="@string/email_address"
                 android:textColor="#7890A8"
                 android:textSize="11sp"
                 android:textStyle="bold" />
@@ -87,18 +95,19 @@
                 android:id="@+id/txtSettingsEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Email"
+                android:text="@string/email"
                 android:textColor="#FFFFFF"
                 android:textSize="17sp"
                 android:layout_marginTop="5dp" />
 
         </LinearLayout>
 
+        <!-- Language section -->
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="APPLICATION"
+            android:text="@string/language_section"
             android:textColor="#42A5F5"
             android:textSize="13sp"
             android:textStyle="bold"
@@ -116,7 +125,45 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="CINEWATCHER."
+                android:text="@string/language_description"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinnerLanguage"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="12dp"
+                android:spinnerMode="dropdown"
+                android:backgroundTint="#42A5F5" />
+
+        </LinearLayout>
+
+        <!-- Application section -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/application_section"
+            android:textColor="#42A5F5"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:background="#102B4A">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/cinewatcher_brand"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -124,7 +171,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Discover. Save. Watch."
+                android:text="@string/discover_save_watch"
                 android:textColor="#8FA8C4"
                 android:textSize="14sp"
                 android:layout_marginTop="5dp" />
@@ -132,19 +179,20 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Powered by TMDB"
+                android:text="@string/powered_by_tmdb"
                 android:textColor="#7890A8"
                 android:textSize="12sp"
                 android:layout_marginTop="12dp" />
 
         </LinearLayout>
 
+        <!-- Logout button -->
 
         <Button
             android:id="@+id/btnLogout"
             android:layout_width="match_parent"
             android:layout_height="54dp"
-            android:text="LOG OUT"
+            android:text="@string/logout"
             android:textColor="#FFFFFF"
             android:textSize="14sp"
             android:textStyle="bold"

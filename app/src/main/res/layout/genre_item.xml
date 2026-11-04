@@ -11,6 +11,8 @@
     android:layout_margin="6dp"
     android:background="@drawable/movie_card">
 
+
+
     <!-- Blue accent line -->
     <View
         android:layout_width="5dp"

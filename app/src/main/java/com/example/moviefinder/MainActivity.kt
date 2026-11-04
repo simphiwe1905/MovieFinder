@@ -1,5 +1,7 @@
+
 package com.example.moviefinder
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -14,9 +16,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.moviefinder.adapter.MovieAdapter
 import com.example.moviefinder.viewmodel.MovieViewModel
 
-/**
- * The main activity that displays movies and allows users to search.
+/*
+ * MainActivity displays movies and allows users to search.
+ * Language preferences are applied when the activity starts.
  */
+
 class MainActivity : AppCompatActivity() {
 
     private val movieViewModel: MovieViewModel by viewModels()
@@ -24,10 +28,17 @@ class MainActivity : AppCompatActivity() {
     private lateinit var movieRecyclerView: RecyclerView
     private lateinit var movieAdapter: MovieAdapter
 
+    // Apply the user's preferred language before loading the screen.
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(
+            LanguageManager.applyLanguage(newBase)
+        )
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Check if the user is logged in
+        // Check if the user is logged in.
         val sharedPreferences = getSharedPreferences(
             "MovieFinderUsers",
             MODE_PRIVATE
@@ -38,10 +49,8 @@ class MainActivity : AppCompatActivity() {
             false
         )
 
-        // If the user is not logged in,
-        // send them back to the Login screen
+        // If the user is not logged in, redirect to Login.
         if (!isLoggedIn) {
-
             val intent = Intent(
                 this,
                 activity_login::class.java
@@ -54,18 +63,17 @@ class MainActivity : AppCompatActivity() {
 
         enableEdgeToEdge()
 
-        // Connect MainActivity to activity_main.xml
+        // Connect MainActivity to activity_main.xml.
         setContentView(R.layout.activity_main)
 
-        // Handle screen insets
+        // Handle screen insets.
         ViewCompat.setOnApplyWindowInsetsListener(
             findViewById(R.id.main)
         ) { v, insets ->
 
-            val systemBars =
-                insets.getInsets(
-                    WindowInsetsCompat.Type.systemBars()
-                )
+            val systemBars = insets.getInsets(
+                WindowInsetsCompat.Type.systemBars()
+            )
 
             v.setPadding(
                 systemBars.left,
@@ -77,16 +85,12 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        // -----------------------------
         // SETTINGS
-        // -----------------------------
-
         val settingsButton = findViewById<Button>(
             R.id.btnSettings
         )
 
         settingsButton.setOnClickListener {
-
             val intent = Intent(
                 this,
                 activity_settings::class.java
@@ -95,12 +99,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        // FAVOURITES
         val favouritesButton = findViewById<Button>(
             R.id.btnFavourites
         )
 
         favouritesButton.setOnClickListener {
-
             val intent = Intent(
                 this,
                 activity_favourites::class.java
@@ -109,13 +113,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // Watchlist
+        // WATCHLIST
         val watchlistButton = findViewById<Button>(
             R.id.btnWatchlist
         )
 
         watchlistButton.setOnClickListener {
-
             val intent = Intent(
                 this,
                 activity_watchlist::class.java
@@ -124,13 +127,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // Genres
+        // GENRES
         val genresButton = findViewById<Button>(
             R.id.btnGenres
         )
 
         genresButton.setOnClickListener {
-
             val intent = Intent(
                 this,
                 activity_genres::class.java
@@ -139,10 +141,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // -----------------------------
         // SEARCH
-        // -----------------------------
-
         val searchInput = findViewById<EditText>(
             R.id.edtSearchMovie
         )
@@ -153,8 +152,7 @@ class MainActivity : AppCompatActivity() {
 
         searchButton.setOnClickListener {
 
-            val searchQuery =
-                searchInput.text.toString().trim()
+            val searchQuery = searchInput.text.toString().trim()
 
             if (searchQuery.isNotEmpty()) {
 
@@ -164,23 +162,25 @@ class MainActivity : AppCompatActivity() {
 
             } else {
 
-                // If the search box is empty,
-                // show the popular movies again
+                // Show popular movies when the search box is empty.
                 movieViewModel.searchMovies("")
             }
         }
 
-        movieRecyclerView =
-            findViewById(R.id.movieRecyclerView)
+        // MOVIE RECYCLER VIEW
+        movieRecyclerView = findViewById(
+            R.id.movieRecyclerView
+        )
 
         movieRecyclerView.layoutManager =
             LinearLayoutManager(this)
 
-        // Create movie adapter
+        // Create movie adapter.
         movieAdapter = MovieAdapter(emptyList())
 
         movieRecyclerView.adapter = movieAdapter
 
+        // Observe movie updates.
         movieViewModel.movies.observe(this) { movies ->
 
             movieAdapter.updateMovies(movies)
